@@ -1,0 +1,20 @@
+<%- include('header');%>
+
+<div class="row post">
+	<div class="col-xs-8 col-xs-offset-2">
+		<h3><%=post.authorID%></h3>
+		<h5><%=post.short%></h5>
+		<small class="date"><%=date%></small>
+		<p><%=post.body%></p>
+		<a href="/">Back</a>
+	</div>
+</div>
+
+<div class="row comments">
+	<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+
+	</div>
+</div>
+<hr>
+
+<%- include('footer');%>
