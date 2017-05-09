@@ -29,9 +29,9 @@ app.get('/', function(req, res){
 })
 
 
-app.get('/:id', function(req, res){
+app.get('/posts/:id', function(req, res){
 	MongoClient.connect(url, function(err, db){
-		console.log("Connected correctly to server");
+		console.log("Connected correctly to server", req.params.id);
 		db.collection('posts')
 		.find({_id: new mongo.ObjectID(req.params.id)})
 		.toArray(function(err, doc){
@@ -40,7 +40,6 @@ app.get('/:id', function(req, res){
 				return console.log("Error", err);
 			}
 			console.log(doc, req.params.id);
-			db.close();
 			res.render('post.ejs', {
 				post: doc[0],
 				date: new Date(doc[0].date)
